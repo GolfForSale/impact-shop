@@ -4,16 +4,20 @@ import Image from 'next/image';
 import { useState } from 'react';
 import styles from './ProductCard.module.css';
 import { Product } from '@/app/lib/types';
+import { useCartStore } from '@/app/store/cartStore';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const addItem = useCartStore((state) => state.addItem);
   const [imageError, setImageError] = useState(false);
 
   const handleAddToCart = () => {
+    addItem(product, 1);
   };
+
   return (
     <div className={styles.productCard}>
       <div className={styles.productImageContainer}>

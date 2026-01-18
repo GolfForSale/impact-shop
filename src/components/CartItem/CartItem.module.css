@@ -1,0 +1,124 @@
+.cartItem {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.cartItemImageContainer {
+  position: relative;
+  width: 6rem;
+  height: 6rem;
+  background-color: #f3f4f6;
+  border-radius: 0.25rem;
+  flex-shrink: 0;
+}
+
+.cartItemImage {
+  object-fit: contain;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.cartItemImagePlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #9ca3af;
+}
+
+.cartItemImageIcon {
+  height: 2rem;
+  width: 2rem;
+}
+
+.cartItemContent {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.cartItemTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.25rem;
+  margin-top: 0;
+  line-height: 1.75rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cartItemPrice {
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+.cartItemControls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantityButton {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e5e7eb;
+  border-radius: 0.25rem;
+  color: #374151;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 200ms;
+}
+
+.quantityButton:hover {
+  background-color: #d1d5db;
+}
+
+.quantityInput {
+  width: 4rem;
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  background-color: #ffffff;
+  color: #111827;
+}
+
+.cartItemSubtotal {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.removeButton {
+  margin-left: auto;
+  padding: 0.5rem 1rem;
+  background-color: #dc2626;
+  color: #ffffff;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 200ms;
+}
+
+.removeButton:hover {
+  background-color: #b91c1c;
+}
