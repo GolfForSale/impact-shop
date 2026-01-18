@@ -13,9 +13,12 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
   const addItem = useCartStore((state) => state.addItem);
   const [imageError, setImageError] = useState(false);
+  const [isAdding, setIsAdding] = useState(false);
 
   const handleAddToCart = () => {
+    setIsAdding(true);
     addItem(product, 1);
+    setTimeout(() => setIsAdding(false), 300);
   };
 
   return (
@@ -61,9 +64,10 @@ export default function ProductCard({ product }: ProductCardProps) {
 
         <button
           onClick={handleAddToCart}
+          disabled={isAdding}
           className={styles.addToCartButton}
         >
-          Add to Cart
+          {isAdding ? 'Adding...' : 'Add to Cart'}
         </button>
       </div>
     </div>
