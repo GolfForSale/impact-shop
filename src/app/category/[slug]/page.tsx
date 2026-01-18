@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import styles from './CategoryPage.module.css';
-import { slugToCategory, slugToDisplayName } from '@/app/lib/utils';
+import { isValidCategorySlug, slugToCategory, slugToDisplayName } from '@/app/lib/utils';
 import Header from '@/components/Header/Header';
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage';
 import LoadingSpinner from '@/components/LoadingSpinner/LoadingSpinner';
@@ -17,6 +17,20 @@ interface CategoryPageProps {
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { slug } = await params;
+
+  const isCorrectSlug = isValidCategorySlug(slug)
+  if(!isCorrectSlug) {
+    return (
+      <main className={styles.categoryContainer}>
+        <div className={styles.categoryHeader}>
+          <Header/>
+          <ErrorMessage message="Not valid Category"/>
+          <Link href={'/'} className={styles.backLink}>Back to category list</Link>
+        </div>
+      </main>
+    )
+  }
+  
   const categoryNameForAPI = slugToCategory(slug);
   const categoryNameForDisplay = slugToDisplayName(slug);
 
@@ -29,7 +43,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           error: err instanceof Error ? err.message : 'Failed to load products',
         }));
 
-  return (
+        return (
     <div className={styles.categoryPage}>
       <Header />
 

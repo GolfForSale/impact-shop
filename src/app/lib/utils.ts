@@ -50,3 +50,18 @@ export function categoryToSlug(categoryName: string): string {
       .replace(/\s+/g, '-')     
       .replace(/[^a-z0-9-]/g, '');
   }
+  
+  export function isValidCategorySlug(slug: string): boolean {
+    if (!slug) {
+      return false;
+    }
+
+    const validSlugs = [
+      'mens-clothing',
+      'womens-clothing',
+      'jewelery',
+      'electronics'
+    ];
+
+    return validSlugs.includes(slug.toLowerCase());
+  }
